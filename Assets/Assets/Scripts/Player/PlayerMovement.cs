@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float detectionRadius;
     public LayerMask ground;
     public LayerMask platforms;
+    public Vector3 ajustment;
 
     Animator animator;
     
@@ -97,19 +98,25 @@ public class PlayerMovement : MonoBehaviour
 
     void DropDown()
     {
-        if (Input.GetButtonDown("Drop"))
+        if (Input.GetButtonDown("Drop"))//input du joueur
         {
             drop = true;
         }
-        else if(isGrounded && !canDrop)
+        else if(isGrounded && !canDrop)// au sol mais pas une plateforme
         {
             drop = false;
         }
-        if (drop && canDrop || !canDrop)
+
+
+        if (drop && canDrop || !canDrop) // input + sur une plateforme ou pas sur une plateforme
         {
            Physics2D.IgnoreLayerCollision(9,10,true); 
         }
-        else
+        // else
+        // {
+        //     Physics2D.IgnoreLayerCollision(9,10,false); 
+        // }
+        if (Physics2D.Raycast(groundDetection.position + ajustment,- transform.up,detectionRadius/4,platforms)&& !drop && rb.velocity.y <-5)
         {
             Physics2D.IgnoreLayerCollision(9,10,false); 
         }
@@ -118,5 +125,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmos() {
         Gizmos.DrawSphere(groundDetection.position,detectionRadius);
+        
     }
 }
