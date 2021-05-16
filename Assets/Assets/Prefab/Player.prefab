@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1546525666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546525667}
+  m_Layer: 9
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1546525667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546525666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5977891119539613577}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5977891119539613578
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +45,7 @@ GameObject:
   - component: {fileID: 8776007251844129660}
   - component: {fileID: 1682082832}
   - component: {fileID: 4856703044523518023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -31,9 +61,10 @@ Transform:
   m_GameObject: {fileID: 5977891119539613578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5977891120419954914}
+  - {fileID: 1546525667}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,8 +106,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 2976041059057689810, guid: 7271c00af7c561f4da251fcfe62912d4,
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -4031619653288768660, guid: c3b4846e2db157847a3691bce90f87f1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +134,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,19 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7663528856d41cf4fbcf2380f3b8c1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
-  jumpForce: 10
+  playerSpeed: 5
+  jumpForce: 15
   numberOfJumps: 1
   jumpsLeft: 0
   groundDetection: {fileID: 5977891120419954914}
   detectionRadius: 0.5
   ground:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   platforms:
     serializedVersion: 2
-    m_Bits: 0
-  ajustment: {x: 0, y: 0, z: 0}
+    m_Bits: 1024
+  ajustment: {x: 0, y: -0.3, z: 0}
 --- !u!95 &8776007251844129660
 Animator:
   serializedVersion: 3
@@ -166,8 +197,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5625, y: 0.578125}
+  m_Offset: {x: 0.081954956, y: -0.43318772}
+  m_Size: {x: 2.2906551, y: 3.0867872}
   m_Direction: 0
 --- !u!114 &4856703044523518023
 MonoBehaviour:
@@ -181,7 +212,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3af5d3c4802a074bbc1304e1b30b174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
+  origin: {fileID: 1546525667}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  animator: {fileID: 0}
+  slashPrefab: {fileID: 3182729651947485335, guid: b9f2b8bba84afa74aad71d65b17fae4e,
+    type: 3}
+  swordDamage: 4
+  range: 3
+  slashDuration: 0.5
+  arrowPrefab: {fileID: 8255701058723139253, guid: e54cd480f9cc8af4cb24f24545fc406c,
+    type: 3}
+  arrowCharge: {fileID: 0}
+  maxRange: 0
+  arrowForwardSpeed: 10
+  arrowVertSpeed: 5
+  maxChargeTime: 2
+  rechargeTime: 1
+  spellPrefab: {fileID: 1795417801309403851, guid: 72fb936bc2e205b43bf1f2016aca2d8c,
+    type: 3}
+  spellSpeed: 15
+  spellCooldown: 0
 --- !u!1 &5977891120419954917
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5977891120419954914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5977891120419954917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.296, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5977891119539613577}

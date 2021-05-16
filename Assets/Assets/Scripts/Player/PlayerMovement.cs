@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !Input.GetButton("Drop"))
         {
             
             if (jumpsLeft > 0)
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     void DropDown()
     {
-        if (Input.GetButtonDown("Drop"))//input du joueur
+        if (Input.GetButton("Drop")&& Input.GetButtonDown ("Jump"))//input du joueur
         {
             drop = true;
         }
