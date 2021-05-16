@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1188979317288709429
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -314,7 +314,14 @@ MonoBehaviour:
   spellPrefab: {fileID: 1795417801309403851, guid: 72fb936bc2e205b43bf1f2016aca2d8c,
     type: 3}
   spellSpeed: 15
-  spellCooldown: 0
+  spellCooldown: 3
+  head: {fileID: 5436650872277273478, guid: 1b3260c17d2f77448960a85c68e36a7a, type: 3}
+  mask: {fileID: 5061500972614806569}
+  throwSpeed: 10
+  throwCooldown:
+    cooldownTime: 6
+    readyOnStart: 1
+    automaticReset: 0
 --- !u!1 &5977891120419954917
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour
     public GameObject spellPrefab;
     public float spellSpeed;
     public float spellCooldown;
-    bool canCast;
+    bool canCast = true;
 
     [Header("HeadThrow")]
     public GameObject head;

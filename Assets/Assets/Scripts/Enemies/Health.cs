@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     public int maxHealth;
     public int arrowDamage;
     public int spellDamage;
+    public int headDamage;
     int currentHealth;
     HealthBar healthBar;
     // Start is called before the first frame update
@@ -26,6 +27,10 @@ public class Health : MonoBehaviour
             other.rigidbody.bodyType = RigidbodyType2D.Kinematic;
             other.rigidbody.simulated = false;
             
+        }
+        if (other.collider.tag == "Head")
+        {
+            TakeDamage(headDamage);
         }
         if (other.collider.tag == "Spell")
         {
